@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#33FAC577"
+    app:layout_constraintBottom_toTopOf="@id/svContentOfMenu"
+    >
+    <LinearLayout
+        android:id="@+id/llProductNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="-49dp"
+        android:background="@color/colorPrimary">
+        <!--            style="@style/Widget.AppCompat.Button.Colored"-->
+        <ImageButton
+            android:id="@+id/btnAdd"
+            style="?buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/add_product"
+            android:src="@drawable/ic_product_add_foreground" />
+
+        <ImageButton
+            android:id="@+id/btnDelete"
+            style="?buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/delete_product"
+            android:src="@drawable/ic_product_delete_foreground" />
+
+        <ImageButton
+            android:id="@+id/btnUpdate"
+            style="?buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/update_product"
+            android:src="@drawable/ic_product_update_foreground" />
+
+        <ImageButton
+            android:id="@+id/btnView"
+            style="?buttonBarStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/view"
+            android:src="@drawable/ic_product_view_foreground" />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/svContentOfMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llProductNav"
+        app:layout_constraintVertical_bias="0.009"
+        tools:layout_editor_absoluteX="-16dp"
+        android:scrollbarStyle="outsideInset">
+
+        <RelativeLayout
+            android:id="@+id/llContentOfMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:gravity="center"
+           >
+
+            <RelativeLayout
+                android:id="@+id/rlAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:id="@+id/tvAddProductCaption"
+                    android:layout_width="252dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginEnd="79dp"
+                    android:layout_marginRight="79dp"
+                    android:gravity="center"
+                    android:text="@string/add_product"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/etProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvAddProductCaption"
+                    android:background="#00F8EEEE"
+                    android:drawableStart="@drawable/ic_product_name_foreground"
+                    android:drawableLeft="@drawable/ic_product_name_foreground"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/product_name"
+                    android:inputType="text"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etProductDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etProductName"
+                    android:drawableStart="@drawable/ic_product_detail_foreground"
+                    android:drawableLeft="@drawable/ic_product_detail_foreground"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/product_detail"
+                    android:inputType="textMultiLine"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etProductCostPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etProductDetail"
+                    android:drawableStart="@drawable/ic_product_price_foreground"
+                    android:drawableLeft="@drawable/ic_product_price_foreground"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/cost_price"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etProductSellPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etProductCostPrice"
+                    android:drawableStart="@drawable/ic_product_price_foreground"
+                    android:drawableLeft="@drawable/ic_product_price_foreground"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/sell_price"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp" />
+
+                <Spinner
+                    android:id="@+id/spCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/etProductSellPrice"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:entries="@array/array_category" />
+
+                <EditText
+                    android:id="@+id/etProductThres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spCategory"
+                    android:layout_marginBottom="0dp"
+                    android:drawableStart="@drawable/ic_product_thres_foreground"
+                    android:drawableLeft="@drawable/ic_product_thres_foreground"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/threshold"
+                    android:inputType="number"
+                    android:padding="5dp" />
+
+                <Button
+                    android:id="@+id/btnAddProduct"
+                    style="?buttonBarStyle"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etProductThres"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="92dp"
+                    android:layout_marginLeft="92dp"
+                    android:layout_marginTop="-6dp"
+                    android:layout_marginEnd="95dp"
+                    android:layout_marginRight="95dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text="@string/add_product" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlDeleteProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlAddProduct">
+
+                <TextView
+                    android:id="@+id/tvDeleteProductCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginLeft="84dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginRight="80dp"
+                    android:gravity="center"
+                    android:text="@string/delete_product"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spDeleteProduct"
+                    android:layout_width="43dp"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/tvDeleteProductCaption"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginRight="12dp"
+                    />
+<!--                android:entries="@array/array_category"-->
+                <Button
+                    android:id="@+id/btnDeleteProduct"
+                    style="?buttonBarStyle"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spDeleteProduct"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="92dp"
+                    android:layout_marginLeft="92dp"
+                    android:layout_marginTop="-6dp"
+                    android:layout_marginEnd="95dp"
+                    android:layout_marginRight="95dp"
+                    android:padding="5dp"
+                    android:text="@string/delete_product" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rlUpdateProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rlDeleteProduct">
+
+                <TextView
+                    android:id="@+id/tvUpdateProductCaption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="84dp"
+                    android:layout_marginLeft="84dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginRight="80dp"
+                    android:gravity="center"
+                    android:text="@string/update_product"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/spUpdateProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/tvUpdateProductCaption"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="start" />
+<!--                android:entries="@array/array_category"-->
+                <EditText
+                    android:id="@+id/etUpdateProductDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spUpdateProduct"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:drawableStart="@drawable/ic_product_detail_foreground"
+                    android:drawableLeft="@drawable/ic_product_detail_foreground"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/product_detail"
+                    android:inputType="textMultiLine"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etUpdateProductCostPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etUpdateProductDetail"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:drawableStart="@drawable/ic_product_price_foreground"
+                    android:drawableLeft="@drawable/ic_product_price_foreground"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/cost_price"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp" />
+
+                <EditText
+                    android:id="@+id/etUpdateProductSellPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etUpdateProductCostPrice"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:drawableStart="@drawable/ic_product_price_foreground"
+                    android:drawableLeft="@drawable/ic_product_price_foreground"
+                    android:gravity="center_vertical|end"
+                    android:hint="@string/sell_price"
+                    android:inputType="numberDecimal"
+                    android:padding="5dp" />
+
+                <Spinner
+                    android:id="@+id/spUpdateCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_below="@id/etUpdateProductSellPrice"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    />
+<!--                android:entries="@array/array_category"-->
+
+                <EditText
+                    android:id="@+id/etUpdateProductThres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/spUpdateCategory"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginBottom="5dp"
+                    android:drawableStart="@drawable/ic_product_thres_foreground"
+                    android:drawableLeft="@drawable/ic_product_thres_foreground"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/threshold"
+                    android:inputType="number"
+                    android:padding="5dp" />
+
+                <Button
+                    android:id="@+id/btnUpdateProduct"
+                    style="?buttonBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/etUpdateProductThres"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginStart="109dp"
+                    android:layout_marginLeft="109dp"
+                    android:layout_marginTop="-6dp"
+                    android:layout_marginEnd="103dp"
+                    android:layout_marginRight="103dp"
+                    android:layout_marginBottom="50dp"
+                    android:background="@color/colorPrimary"
+                    android:padding="5dp"
+                    android:text="@string/update_product" />
+            </RelativeLayout>
+                        <RelativeLayout
+                            android:id="@+id/rlViewProduct"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/rlUpdateProduct">
+
+                            <TextView
+                                android:id="@+id/tvViewProductCaption"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="84dp"
+                                android:layout_marginLeft="84dp"
+                                android:layout_marginEnd="80dp"
+                                android:layout_marginRight="80dp"
+                                android:gravity="center"
+                                android:text="@string/update_product"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/rvViewProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/tvViewProductCaption"
+                                />
+
+                        </RelativeLayout>
+        </RelativeLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
